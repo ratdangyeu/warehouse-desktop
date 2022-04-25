@@ -16,7 +16,7 @@ namespace Warehouse.Repository
         #region Ctor
         public WHContext(DbContextOptions options) : base(options)
         {
-            
+            Database.EnsureCreated();
         }
         #endregion
 

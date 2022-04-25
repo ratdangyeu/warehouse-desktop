@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace Warehouse
@@ -14,8 +13,8 @@ namespace Warehouse
         #endregion
 
         #region Ctor
-        public MainWindow(IMapper mapper)
-        {            
+        public MainWindow()
+        {
             InitializeComponent();
         }
         #endregion
