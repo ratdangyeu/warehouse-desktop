@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Warehouse.MVVM.Models;
+using Warehouse.Repository.Entities;
 
 namespace Warehouse.Infrastructure.AutoMapperProfiles
 {
@@ -11,7 +8,26 @@ namespace Warehouse.Infrastructure.AutoMapperProfiles
     {
         public WarehouseProfile()
         {
+            #region Unit
 
+            #endregion
+
+            #region Vendor
+
+            #endregion
+
+            #region Warehouse
+            CreateMap<WarehouseModel, WarehouseEntity>();
+            CreateMap<WarehouseEntity, WarehouseModel>();
+            #endregion
+
+            #region WarehouseItem
+
+            #endregion
+
+            #region WarehouseItemCategory
+
+            #endregion
         }
     }
 }

@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="MVVM\Models\WarehouseItem\" />
     <Folder Include="MVVM\Models\Role\" />
     <Folder Include="MVVM\Models\User\" />
   </ItemGroup>
