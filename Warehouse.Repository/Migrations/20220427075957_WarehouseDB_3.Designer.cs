@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Warehouse.Repository;
 
@@ -10,9 +11,10 @@ using Warehouse.Repository;
 namespace Warehouse.Repository.Migrations
 {
     [DbContext(typeof(WHContext))]
-    partial class WHContextModelSnapshot : ModelSnapshot
+    [Migration("20220427075957_WarehouseDB_3")]
+    partial class WarehouseDB_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");

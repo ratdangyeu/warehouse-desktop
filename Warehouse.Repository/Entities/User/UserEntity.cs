@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Warehouse.Repository.Entities
 {
@@ -25,5 +26,11 @@ namespace Warehouse.Repository.Entities
         public DateTime ModifiedDate { get; set; }
 
         public string? ModifiedBy { get; set; }
+
+        public int? StoreId { get; set; }
+
+        public StoreEntity? Store { get; set; }
+
+        public IList<UserRoleEntity>? UserRoles { get; set; }
     }
 }

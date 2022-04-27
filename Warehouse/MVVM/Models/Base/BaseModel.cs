@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Warehouse.MVVM.Models
+﻿namespace Warehouse.MVVM.Models
 {
     public class BaseModel
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
     }
 }

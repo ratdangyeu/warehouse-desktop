@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Warehouse.Repository;
 
@@ -10,62 +11,13 @@ using Warehouse.Repository;
 namespace Warehouse.Repository.Migrations
 {
     [DbContext(typeof(WHContext))]
-    partial class WHContextModelSnapshot : ModelSnapshot
+    [Migration("20220427075533_WarehouseDB_1")]
+    partial class WarehouseDB_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.RoleEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Inactive")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-                });
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.StoreEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Inactive")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Store");
-                });
 
             modelBuilder.Entity("Warehouse.Repository.Entities.UnitEntity", b =>
                 {
@@ -82,80 +34,6 @@ namespace Warehouse.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Unit");
-                });
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.UserEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("StoreId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StoreId");
-
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.UserRoleEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("RoleId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("Warehouse.Repository.Entities.VendorEntity", b =>
@@ -303,30 +181,6 @@ namespace Warehouse.Repository.Migrations
                     b.ToTable("WarehouseItem");
                 });
 
-            modelBuilder.Entity("Warehouse.Repository.Entities.UserEntity", b =>
-                {
-                    b.HasOne("Warehouse.Repository.Entities.StoreEntity", "Store")
-                        .WithMany("Users")
-                        .HasForeignKey("StoreId");
-
-                    b.Navigation("Store");
-                });
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.UserRoleEntity", b =>
-                {
-                    b.HasOne("Warehouse.Repository.Entities.RoleEntity", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId");
-
-                    b.HasOne("Warehouse.Repository.Entities.UserEntity", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Warehouse.Repository.Entities.WarehouseItemEntity", b =>
                 {
                     b.HasOne("Warehouse.Repository.Entities.UnitEntity", "Unit")
@@ -350,24 +204,9 @@ namespace Warehouse.Repository.Migrations
                     b.Navigation("WarehouseItemCategory");
                 });
 
-            modelBuilder.Entity("Warehouse.Repository.Entities.RoleEntity", b =>
-                {
-                    b.Navigation("UserRoles");
-                });
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.StoreEntity", b =>
-                {
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("Warehouse.Repository.Entities.UnitEntity", b =>
                 {
                     b.Navigation("WarehouseItems");
-                });
-
-            modelBuilder.Entity("Warehouse.Repository.Entities.UserEntity", b =>
-                {
-                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("Warehouse.Repository.Entities.VendorEntity", b =>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Prism.Events;
 using System;
 using System.IO;
 using System.Windows;
@@ -18,12 +19,14 @@ namespace Warehouse
         #region Fields
         private readonly ServiceProvider _serviceProvider;
         private readonly ServiceCollection _services;
+        private readonly IEventAggregator _eventAggregator;
         #endregion
 
         #region Ctor
         public App()
         {
             _services = new ServiceCollection();            
+            _eventAggregator = new EventAggregator();
             ConfigureServices(_services);
             _serviceProvider = _services.BuildServiceProvider();
         }
@@ -52,6 +55,8 @@ namespace Warehouse
 
             var mapper = new Mapper(mapperConfig);
             services.AddSingleton<IMapper>(mapper);
+
+            services.AddSingleton(_eventAggregator);
 
             // Services
             services.AddSingleton<IWarehouseService, WarehouseService>();

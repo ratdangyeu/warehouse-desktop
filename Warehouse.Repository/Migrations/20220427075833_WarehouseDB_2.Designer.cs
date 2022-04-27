@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Warehouse.Repository;
 
@@ -10,9 +11,10 @@ using Warehouse.Repository;
 namespace Warehouse.Repository.Migrations
 {
     [DbContext(typeof(WHContext))]
-    partial class WHContextModelSnapshot : ModelSnapshot
+    [Migration("20220427075833_WarehouseDB_2")]
+    partial class WarehouseDB_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
@@ -123,7 +125,11 @@ namespace Warehouse.Repository.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("StoreId")
+                    b.Property<string>("StoreId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("StoreId1")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserName")
@@ -132,7 +138,7 @@ namespace Warehouse.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StoreId");
+                    b.HasIndex("StoreId1");
 
                     b.ToTable("User");
                 });
@@ -307,7 +313,9 @@ namespace Warehouse.Repository.Migrations
                 {
                     b.HasOne("Warehouse.Repository.Entities.StoreEntity", "Store")
                         .WithMany("Users")
-                        .HasForeignKey("StoreId");
+                        .HasForeignKey("StoreId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Store");
                 });
