@@ -48,10 +48,20 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
                     <Ellipse Width="15"
-                         Height="15"
-                         Fill="White"                         
+                         Height="15"                        
                          StrokeThickness="1"
-                         MouseDown="BtnExit"/>
+                         MouseDown="BtnExit">
+                        <Ellipse.Style>
+                            <Style TargetType="Ellipse">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="Fill" Value="White"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Setter Property="Fill" Value="Red"/>
+                            </Style>
+                        </Ellipse.Style>
+                    </Ellipse>
                 </Border>
             </Grid>
         </Border>

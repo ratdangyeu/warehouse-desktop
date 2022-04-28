@@ -16,11 +16,21 @@
 
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <TextBlock Text="Quản lý kho"
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Image Source="/Images/warehouse.png"
+                           Width="50"
+                           Height="50"
+                           Margin="0, 0, 20, 0">
+                    </Image>
+                    <TextBlock Text="Quản lý kho"
                            FontSize="30"
                            Foreground="white"
                            FontWeight="Medium"
                            HorizontalAlignment="Center"/>
+                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal"
                             Margin="0,15,0,0">
                     <TextBlock Text="Tên đăng nhập"

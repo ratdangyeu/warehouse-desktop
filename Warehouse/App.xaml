@@ -10,6 +10,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Themes/LoginBox.xaml"/>
                 <ResourceDictionary Source="/Themes/PasswordBox.xaml"/>
+                <ResourceDictionary Source="/Themes/InputTextBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">

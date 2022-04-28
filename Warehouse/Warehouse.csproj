@@ -8,16 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\left_arrow.png" />
     <None Remove="Images\lock.png" />
     <None Remove="Images\lock_white.png" />
+    <None Remove="Images\register.png" />
+    <None Remove="Images\right_arrow.png" />
     <None Remove="Images\user.png" />
     <None Remove="Images\user_white.png" />
+    <None Remove="Images\warehouse.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="MVVM\Models\Role\" />
-    <Folder Include="MVVM\Models\User\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,16 +42,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\left_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\lock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\lock_white.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\register.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\right_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\user.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\user_white.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\warehouse.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

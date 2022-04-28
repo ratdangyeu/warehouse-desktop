@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace Warehouse.Repository.Entities
+namespace Warehouse.MVVM.Models
 {
-    public class UserEntity : BaseEntity
+    public class UserModel : BaseModel
     {
         public string Code { get; set; }
 
@@ -11,7 +10,7 @@ namespace Warehouse.Repository.Entities
 
         public string? LastName { get; set; }
 
-        public string? FirstName { get; set; }   
+        public string? FirstName { get; set; }
 
         public string? Phone { get; set; }
 
@@ -27,12 +26,13 @@ namespace Warehouse.Repository.Entities
 
         public string? ModifiedBy { get; set; }
 
-        public bool Inactive { get; set; }
-
         public int? StoreId { get; set; }
 
-        public StoreEntity? Store { get; set; }
+        public bool Inactive { get; set; }
 
-        public IList<UserRoleEntity>? UserRoles { get; set; }
+        public UserModel()
+        {
+            Inactive = false;
+        }
     }
 }
